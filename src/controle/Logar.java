@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package controle;
 
@@ -9,12 +9,16 @@ package controle;
  * @author EGGzin
  */
 
-public class Login extends javax.swing.JFrame {
+
+import java.awt.*;
+import javax.swing.border.EmptyBorder;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
+public class Logar extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form Login
+     * Creates new form Logar
      */
-    public Login() {
+    public Logar() {
         initComponents();
     }
 
@@ -39,9 +43,10 @@ public class Login extends javax.swing.JFrame {
         lbl_Title = new javax.swing.JLabel();
         btn_Voltar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
-        setResizable(false);
+        ((BasicInternalFrameUI)this.getUI()).getNorthPane().setPreferredSize( new Dimension(0,0) );
+
+        setBorder(new EmptyBorder(new Insets(0,0,0,0)));
+        setPreferredSize(new java.awt.Dimension(640, 480));
 
         panelFundo.setBackground(new java.awt.Color(51, 51, 51));
         panelFundo.setForeground(new java.awt.Color(60, 63, 65));
@@ -87,8 +92,12 @@ public class Login extends javax.swing.JFrame {
         lbl_Senha.setText("Senha:");
 
         btn_Logar.setText("Logar");
+        btn_Logar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_LogarActionPerformed(evt);
+            }
+        });
 
-        txt_Senha.setText("jPasswordField1");
         txt_Senha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_SenhaActionPerformed(evt);
@@ -130,7 +139,7 @@ public class Login extends javax.swing.JFrame {
                                 .addComponent(btn_Logar)
                                 .addGap(56, 56, 56)
                                 .addComponent(btn_Voltar)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(panelImg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panelFundoLayout.setVerticalGroup(
@@ -146,7 +155,7 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(lbl_Senha)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt_Senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_Logar)
                     .addComponent(btn_Voltar))
@@ -166,14 +175,27 @@ public class Login extends javax.swing.JFrame {
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+ 
+    public void setPosicao() {
+        Dimension d = this.getDesktopPane().getSize();
+        this.setLocation((d.width - this.getSize().width) / 2, (d.height - this.getSize().height) / 2);
+    }
 
     private void btn_SairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SairActionPerformed
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_btn_SairActionPerformed
 
+    private void btn_LogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LogarActionPerformed
+        // TODO add your handling code here:
+        frm1 frm = new frm1();
+        getParent().add(frm);
+        frm.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btn_LogarActionPerformed
+
+   
     private void txt_SenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_SenhaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_SenhaActionPerformed
@@ -183,40 +205,6 @@ public class Login extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btn_VoltarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Login().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Logar;

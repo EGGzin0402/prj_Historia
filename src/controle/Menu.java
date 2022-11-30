@@ -46,7 +46,8 @@ public class Menu extends javax.swing.JFrame {
             }
 
         };
-        jButton1 = new javax.swing.JButton();
+        btn_Logar = new javax.swing.JButton();
+        btn_Quest = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         Menu = new javax.swing.JMenuBar(){
 
@@ -72,17 +73,28 @@ public class Menu extends javax.swing.JFrame {
         toolBar.setEnabled(false);
         toolBar.setFocusable(false);
 
-        jButton1.setBackground(new java.awt.Color(51, 51, 51));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Logar");
-        jButton1.setFocusable(false);
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_Logar.setBackground(new java.awt.Color(51, 51, 51));
+        btn_Logar.setForeground(new java.awt.Color(255, 255, 255));
+        btn_Logar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btnLogar.png"))); // NOI18N
+        btn_Logar.setFocusable(false);
+        btn_Logar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn_Logar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_LogarActionPerformed(evt);
             }
         });
-        toolBar.add(jButton1);
+        toolBar.add(btn_Logar);
+
+        btn_Quest.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btnQuest.png"))); // NOI18N
+        btn_Quest.setFocusable(false);
+        btn_Quest.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn_Quest.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btn_Quest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_QuestActionPerformed(evt);
+            }
+        });
+        toolBar.add(btn_Quest);
 
         jButton2.setBackground(new java.awt.Color(51, 51, 51));
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
@@ -102,12 +114,12 @@ public class Menu extends javax.swing.JFrame {
             WorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(WorkspaceLayout.createSequentialGroup()
                 .addComponent(toolBar, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 706, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 727, Short.MAX_VALUE)
                 .addComponent(jButton2))
         );
         WorkspaceLayout.setVerticalGroup(
             WorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(toolBar, javax.swing.GroupLayout.DEFAULT_SIZE, 578, Short.MAX_VALUE)
+            .addComponent(toolBar, javax.swing.GroupLayout.DEFAULT_SIZE, 577, Short.MAX_VALUE)
             .addGroup(WorkspaceLayout.createSequentialGroup()
                 .addComponent(jButton2)
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -163,16 +175,26 @@ public class Menu extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btn_LogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LogarActionPerformed
         // TODO add your handling code here:
-        Login login = new Login();
+        Logar login = new Logar();
+        Workspace.add(login);
         login.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+        login.setPosicao();
+        
+    }//GEN-LAST:event_btn_LogarActionPerformed
 
     private void menuItem_SairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuItem_SairMouseClicked
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_menuItem_SairMouseClicked
+
+    private void btn_QuestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_QuestActionPerformed
+        // TODO add your handling code here:
+        frm1 frm = new frm1();
+        Workspace.add(frm);
+        frm.setVisible(true);
+    }//GEN-LAST:event_btn_QuestActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,8 +233,9 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar Menu;
-    private javax.swing.JDesktopPane Workspace;
-    private javax.swing.JButton jButton1;
+    public javax.swing.JDesktopPane Workspace;
+    private javax.swing.JButton btn_Logar;
+    private javax.swing.JButton btn_Quest;
     private javax.swing.JButton jButton2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
